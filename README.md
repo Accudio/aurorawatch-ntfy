@@ -17,9 +17,13 @@ Then, subscribe to the [aurorawatch](https://ntfy.sh/aurorawatch) topic on the d
 
 ## Development
 
-The project is a simple PHP script in `cron.php`. Run it via the command line or on a cron job with `php cron.php`. It uses composer for dependencies but includes them in the repo so there should be no need for installation.
+The project is a simple PHP script in `cron.php`.
 
-`state.json` is used to store the previous state of the script to avoid duplicate alerts and to track the cool-down of alerts and alert escalation.
+Set up environment variables by copying `env.php.sample` to `env.php`. It's set up for live details by default but can be changed to test details via commenting.
+
+Run it via the command line or on a cron job with `php cron.php`. It uses composer for dependencies but includes them in the repo so there should be no need for installation.
+
+`state.json` is used to store the previous state of the script to avoid duplicate alerts and to track the cooldown of alerts and alert escalation.
 
 Notification behaviour and content is designed to mirror the 'official' AuroraWatch UK apps as closely as possible.
 

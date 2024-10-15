@@ -1,12 +1,8 @@
 <?php
 require 'vendor/autoload.php';
+require __DIR__ . '/env.php';
 
-$test_mode = true;
-
-$api_url = 'https://aurorawatch-api.lancs.ac.uk/0.2/status/alerting-site-activity.xml';
-$ntfy_endpoint = $test_mode
-	? 'https://ntfy.sh/aurorawatch-test'
-	: 'https://ntfy.sh/aurorawatch';
+$ntfy_endpoint = 'https://ntfy.sh/' . NTFY_TOPIC;
 $cool_off = 60*60*6;
 $alert_levels = [
 	'green' => 0,
@@ -36,9 +32,8 @@ $alert_content = [
 $state = json_decode(file_get_contents(__DIR__ . '/state.json'), true);
 
 // get the XML from the API or dummy data
-$url = $test_mode ? __DIR__ . '/dummy.xml' : $api_url;
 $xml = file_get_contents(
-	$url, false,
+	API_URL, false,
 	stream_context_create(['http' => ['header'  => 'User-Agent: AuroraWatch ntfy bridge']])
 );
 
