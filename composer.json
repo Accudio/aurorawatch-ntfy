@@ -1,0 +1,14 @@
+{
+    "name": "alistair/aurorawatch-ntfy",
+    "type": "project",
+    "license": "UNLICENSED",
+    "authors": [
+        {
+            "name": "Alistair Shepherd",
+            "email": "alistair@accudio.com"
+        }
+    ],
+    "require": {
+        "sabre/xml": "^4.0"
+    }
+}

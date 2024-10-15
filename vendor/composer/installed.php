@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'alistair/aurorawatch-ntfy',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
+        'type' => 'project',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
+    ),
+    'versions' => array(
+        'alistair/aurorawatch-ntfy' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/uri' => array(
+            'pretty_version' => '3.0.2',
+            'version' => '3.0.2.0',
+            'reference' => '38eeab6ed9eec435a2188db489d4649c56272c51',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/uri',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'sabre/xml' => array(
+            'pretty_version' => '4.0.6',
+            'version' => '4.0.6.0',
+            'reference' => 'a89257fd188ce30e456b841b6915f27905dfdbe3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../sabre/xml',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

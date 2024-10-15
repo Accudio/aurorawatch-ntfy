@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<title>Aurorawatch ntfy notification bridge</title>
+	<meta name="description" content="A simple way of getting AuroraWatch notifications on devices via ntfy">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌌</text></svg>">
+
+  <style>
+    *, ::after, ::before {
+			box-sizing: border-box;
+		}
+
+		html {
+			--highlight: #3f68ff;
+			-moz-text-size-adjust: none;
+			-webkit-text-size-adjust: none;
+			text-size-adjust: none;
+			font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+			color: #333;
+		}
+
+		blockquote, body, dd, dl, figure, h1, h2, h3, h4, p {
+			margin: 0;
+		}
+
+		ol[role=list], ul[role=list] {
+			list-style: none;
+		}
+
+		body {
+			background: url(bg.png);
+			min-height: 100vh;
+			line-height: 1.5;
+			padding: 1rem 0.5rem;
+			display: grid;
+			place-items: center;
+		}
+
+		button, h1, h2, h3, h4, input, label {
+			line-height: 1.1;
+		}
+
+		h1, h2, h3, h4 {
+			text-wrap: balance;
+		}
+
+		a:not([class]) {
+			text-decoration-skip-ink: auto;
+			color: currentColor;
+			text-decoration-color: var(--highlight);
+			text-underline-offset: 0.1em;
+			text-decoration-thickness: 0.2em;
+		}
+
+		img, picture {
+			max-width: 100%;
+			display: block;
+		}
+
+		button, input, select, textarea {
+			font: inherit;
+		}
+
+		textarea:not([rows]) {
+			min-height: 10em;
+		}
+
+		:target {
+			scroll-margin-block: 5ex;
+		}
+
+		main {
+			background: #fff;
+			max-width: 80ch;
+			border: 1px solid #ddd;
+			border-radius: 1rem;
+			padding: 2rem;
+		}
+
+		main > * + * {
+			margin-top: 1em;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #e5e7eb;
+			text-align: left;
+			padding: 0.5rem;
+		}
+
+		th {
+			background: #f6f8fa;
+		}
+
+		tr:nth-child(even) {
+			background: #f6f8fa;
+		}
+
+		table caption {
+			font-weight: 700;
+			margin-bottom: 0.5rem;
+		}
+
+		button {
+			cursor: pointer;
+			border: none;
+			background: none;
+			font: inherit;
+			text-decoration: underline;
+			text-decoration-skip-ink: auto;
+			color: currentColor;
+			text-decoration-color: var(--highlight);
+			text-underline-offset: 0.1em;
+			text-decoration-thickness: 0.2em;
+			display: none;
+		}
+
+  </style>
+</head>
+
+<body>
+  <main>
+		<h1>AuroraWatch UK ntfy notification bridge</h1>
+
+		<p>An unofficial and simple way of getting <a href="https://aurorawatch.lancs.ac.uk">AuroraWatch UK</a> notifications on devices via ntfy.</p>
+
+		<p>Uses the <a href="https://aurorawatch.lancs.ac.uk/api-info/">AuroraWatch UK API</a> to check aurora status and <a href="https://ntfy.sh">ntfy</a> for delivering notifications.</p>
+
+		<h2>How to use this?</h2>
+
+		<p>First, install the ntfy app on your chosen device:</p>
+
+		<ul>
+			<li><a href="https://play.google.com/store/apps/details?id=io.heckel.ntfy&pli=1">Google Play Store (Android)</a></li>
+			<li><a href="https://apps.apple.com/us/app/ntfy/id1625396347">Apple app store (iOS)</a></li>
+			<li><a href="https://ntfy.sh/app">Progressive Web App (Windows, macOS, linux, other)</a></li>
+			<li><a href="https://f-droid.org/en/packages/io.heckel.ntfy/">F-Droid (Android)</a></li>
+		</ul>
+
+		<p>Then, subscribe to the <a href="https://ntfy.sh/aurorawatch">aurorawatch</a> <button id="copy">(copy)</button> topic on the default ntfy.sh server.</p>
+		<script>
+			const button = document.getElementById('copy');
+			button.style.display = null;
+			button.addEventListener('click', () => {
+				navigator.clipboard.writeText('aurorawatch')
+			})
+		</script>
+
+		<p>For more information about AuroraWatch UK, their API, and Auroras in general visit the <a href="http://aurorawatch.lancs.ac.uk/">AuroraWatch UK website</a>. This website and project was made by <a href="https://alistairshepherd.uk">Alistair Shepherd</a>.</p>
+	</main>
+</body>
+</html>

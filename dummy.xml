@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!DOCTYPE site_activity PUBLIC "-//AuroraWatch-API//DTD REST 0.2.5//EN" "http://aurorawatch-api.lancs.ac.uk/0.2.5/aurorawatch-api.dtd">
+<site_activity api_version="0.2.5" project_id="project:AWN" site_id="site:AWN:SUM" site_url="http://aurorawatch-api.lancs.ac.uk/0.2.5/project/awn/sum.xml">
+	<lower_threshold status_id="green">0</lower_threshold>
+	<lower_threshold status_id="yellow">50</lower_threshold>
+	<lower_threshold status_id="amber">100</lower_threshold>
+	<lower_threshold status_id="red">200</lower_threshold>
+	<updated>
+		<datetime>2024-10-15T19:48:32+0000</datetime>
+	</updated>
+	<activity status_id="green">
+		<datetime>2024-10-14T20:00:00+0000</datetime>
+		<value>nan</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-14T21:00:00+0000</datetime>
+		<value>nan</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-14T22:00:00+0000</datetime>
+		<value>nan</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-14T23:00:00+0000</datetime>
+		<value>nan</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T00:00:00+0000</datetime>
+		<value>29.0</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T01:00:00+0000</datetime>
+		<value>15.0</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T02:00:00+0000</datetime>
+		<value>31.0</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T03:00:00+0000</datetime>
+		<value>22.7</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T04:00:00+0000</datetime>
+		<value>23.7</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T05:00:00+0000</datetime>
+		<value>30.6</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T06:00:00+0000</datetime>
+		<value>36.0</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T07:00:00+0000</datetime>
+		<value>27.4</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T08:00:00+0000</datetime>
+		<value>19.1</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T09:00:00+0000</datetime>
+		<value>22.2</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T10:00:00+0000</datetime>
+		<value>14.1</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T11:00:00+0000</datetime>
+		<value>14.4</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T12:00:00+0000</datetime>
+		<value>25.7</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T13:00:00+0000</datetime>
+		<value>19.3</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T14:00:00+0000</datetime>
+		<value>26.7</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T15:00:00+0000</datetime>
+		<value>21.3</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T16:00:00+0000</datetime>
+		<value>34.6</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T17:00:00+0000</datetime>
+		<value>22.9</value>
+	</activity>
+	<activity status_id="green">
+		<datetime>2024-10-15T18:00:00+0000</datetime>
+		<value>17.2</value>
+	</activity>
+	<activity status_id="red">
+		<datetime>2024-10-15T19:00:00+0000</datetime>
+		<value>14.0</value>
+	</activity>
+</site_activity>
