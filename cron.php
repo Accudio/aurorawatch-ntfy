@@ -28,8 +28,16 @@ $alert_content = [
 	]
 	];
 
-// load state.json
-$state = json_decode(file_get_contents(__DIR__ . '/state.json'), true);
+// load state.json with defaults if it doesn't exist
+$state = [
+	'updatedAt' => 0,
+	'lastAlert' => 0,
+	'status' => 'green',
+	'lastRun' => 0
+];
+if (file_exists(__DIR__ . '/state.json')) {
+	$state = json_decode(file_get_contents(__DIR__ . '/state.json'), true);
+}
 
 // get the XML from the API or dummy data
 $xml = file_get_contents(
