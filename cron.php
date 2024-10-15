@@ -33,10 +33,10 @@ $alert_content = [
 	];
 
 // load state.json
-$state = json_decode(file_get_contents('state.json'), true);
+$state = json_decode(file_get_contents(__DIR__ . '/state.json'), true);
 
 // get the XML from the API or dummy data
-$url = $test_mode ? 'dummy.xml' : $api_url;
+$url = $test_mode ? __DIR__ . '/dummy.xml' : $api_url;
 $xml = file_get_contents(
 	$url, false,
 	stream_context_create(['http' => ['header'  => 'User-Agent: AuroraWatch ntfy bridge']])
@@ -102,7 +102,7 @@ echo "no change in status level\n";
 function update_exit($params = []) {
 	global $state;
 	$state = array_merge($state, $params);
-	file_put_contents('state.json', json_encode($state));
+	file_put_contents(__DIR__ . '/state.json', json_encode($state));
 	exit();
 }
 
