@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-$test_mode = false;
+$test_mode = true;
 
 $api_url = 'https://aurorawatch-api.lancs.ac.uk/0.2/status/alerting-site-activity.xml';
 $ntfy_endpoint = $test_mode
@@ -101,7 +101,12 @@ echo "no change in status level\n";
 
 function update_exit($params = []) {
 	global $state;
-	$state = array_merge($state, $params);
+	$state = array_merge(
+		array_merge($state, $params),
+		[
+			'lastRun' => date('c')
+		]
+	);
 	file_put_contents(__DIR__ . '/state.json', json_encode($state));
 	exit();
 }
