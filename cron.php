@@ -39,11 +39,20 @@ if (file_exists(__DIR__ . '/state.json')) {
 	$state = json_decode(file_get_contents(__DIR__ . '/state.json'), true);
 }
 
-// get the XML from the API or dummy data
-$xml = file_get_contents(
-	API_URL, false,
-	stream_context_create(['http' => ['header'  => 'User-Agent: AuroraWatch ntfy bridge']])
-);
+// get the XML, using file_get_contents or curl
+$xml = null;
+if (str_starts_with(API_URL, 'http')) {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, API_URL);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+		'User-Agent: AuroraWatch ntfy bridge'
+	]);
+	$xml = curl_exec($ch);
+	curl_close($ch);
+} else {
+	$xml = file_get_contents(API_URL);
+}
 
 // parse XML
 $service = new Sabre\Xml\Service();
@@ -106,9 +115,7 @@ function update_exit($params = []) {
 	global $state;
 	$state = array_merge(
 		array_merge($state, $params),
-		[
-			'lastRun' => date('c')
-		]
+		[ 'lastRun' => date('c') ]
 	);
 	file_put_contents(__DIR__ . '/state.json', json_encode($state));
 	exit();
@@ -117,17 +124,19 @@ function update_exit($params = []) {
 function alert($status) {
 	global $ntfy_endpoint, $alert_content;
 	echo "ALERT: $status\n";
-	file_get_contents(
-		$ntfy_endpoint, false,
-		stream_context_create(['http' => [
-			'method'  => 'POST',
-			'header'  => implode("\r\n", [
-				"Content-Type: text/plain",
-				"X-Title: " . $alert_content[$status]['title'],
-				"X-Tags: " . $alert_content[$status]['tags'],
-				"X-Click: https://aurorawatch.lancs.ac.uk",
-			]),
-			'content' => $alert_content[$status]['body']
-		]])
-	);
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $ntfy_endpoint);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $alert_content[$status]['body']);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, [
+		"Content-Type: text/plain",
+		"X-Title: " . $alert_content[$status]['title'],
+		"X-Tags: " . $alert_content[$status]['tags'],
+		"X-Click: https://aurorawatch.lancs.ac.uk",
+	]);
+
+	curl_exec($ch);
+	curl_close($ch);
 }
